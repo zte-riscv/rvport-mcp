@@ -1,0 +1,8 @@
+# server.py 运行依赖（查询端）
+# MCP 协议层（stdio server 必须）；钉 <2：mcp 2.x 将 FastMCP 改名 MCPServer，server.py 按 v1 API 编写
+mcp>=1.0.0,<2
+
+# 向量混合检索（可选；缺失时自动降级纯 BM25，服务仍可用）
+# 模型（bge-small-zh-v1.5，约 95MB）首次使用时从 hf-mirror 下载到用户缓存目录，不随仓库分发
+fastembed>=0.4.0
+numpy>=1.26.0

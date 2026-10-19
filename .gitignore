@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# 构建中间产物（HTML/Markdown）
+build/
+
+# spec 源工作副本（12GB 本地快照，可由 spec_repos.yml 重拉）
+doc/
+
+# nodes/*.txt 人读导出（docstore.json 的可再生产物）
+docs/*/nodes/
+
+# venv 与缓存
+.venv/
+venv/

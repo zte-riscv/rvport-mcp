@@ -1,0 +1,63 @@
+# spec 源仓库配置：执行 build_kb.sh 时缺失的仓库会按此自动 clone。
+#
+# 字段：
+#   url     git 克隆地址（https）
+#   pin     克隆后 checkout 的提交；必须是完整 40 位哈希或分支/标签名
+#           （GitHub 按哈希 fetch 只认完整 SHA，短哈希会被构建器拒绝）
+#   dest    doc/ 下的目标目录（KB_SPECS 中的 repo 名与此对应）
+#
+# 升级 spec：改 pin 为新提交的完整哈希（git ls-remote <url> 或仓库内
+# git rev-parse HEAD），删掉 doc/<dest>/ 后重跑 build_kb.sh。
+# 网络不通时，手动把仓库放到 doc/<dest>/ 即可跳过 clone。
+
+- url: https://github.com/riscv/riscv-isa-manual.git
+  pin: 25b3fbce6777d85fd1f2682f8c64c298f345a9c6   # 两卷合一布局（riscv-isa-release-25b3fbc-2026-03-23）
+  dest: riscv-isa-manual/riscv-isa-manual
+
+- url: https://github.com/riscv-non-isa/riscv-asm-manual.git
+  pin: 5c1a2da67dbf0aa3c14d76d6639179856cc45c97
+  dest: riscv-asm-manual
+
+- url: https://github.com/riscv/riscv-profiles
+  pin: 2852ae1f1bfbc34334fcee8b8345472e4811dfd7
+  dest: riscv-profiles
+
+- url: https://github.com/riscv/integer-vector-absolute-difference.git
+  pin: aa1eba3a9b3e541954ddd12bfbc161bbaa8ba0fa   # unpriv/priv 独立两卷布局（rvv KB 来源）
+  dest: integer-vector-absolute-difference
+
+- url: https://github.com/riscv/riscv-crypto
+  pin: 9cb90879050f68de8ba0b2f8bc34bec599ac8025
+  dest: riscv-crypto
+
+- url: https://github.com/riscv-non-isa/riscv-rvv-intrinsic-doc.git
+  pin: 59fd4eda2e2ee5c88c982b3dd7e9d77fd1bc4755
+  dest: riscv-rvv-intrinsic-doc
+
+- url: https://github.com/riscv/riscv-bitmanip.git
+  pin: 517a903b319ffadbe617339ab4d4a14b1204dd05   # bitmanip-1.0.0-76-g517a903（md 名保留 git describe）
+  dest: riscv-bitmanip
+
+- url: https://github.com/riscv/riscv-bfloat16
+  pin: 67c1319d31e07fbb48ca7a6c0fc7448f4d3090ba
+  dest: riscv-bfloat16
+
+- url: https://github.com/riscv/riscv-zaamo-zalrsc
+  pin: e45703f03113dcabcb6d583cc5d42d71463f262b
+  dest: riscv-zaamo-zalrsc
+
+- url: https://github.com/riscv/riscv-zabha.git
+  pin: f9ce2c7e32147f8ae2144edc484ef52c20438957
+  dest: riscv-zabha
+
+- url: https://github.com/riscv/riscv-zalasr
+  pin: c014cba5e9966a0c538f55627693a5d83b6a2cd9
+  dest: riscv-zalasr
+
+- url: https://github.com/dzhang28/riscv-optimization-guide
+  pin: dd53960bde1531e2cf8b0fa0d322cd675899a12d
+  dest: riscv-optimization-guide
+
+- url: https://github.com/riscv/riscv-performance-events
+  pin: a80a12386966b6e4d6a4be3c8d2e3d6307a2658e
+  dest: riscv-performance-events
